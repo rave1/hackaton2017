@@ -1,0 +1,14 @@
+<?php
+ require_once("connect.php");
+
+
+ $pol = new mysqli($adres, $uzytkownik, $haslo, $baza);
+ $ss = $pol->query("SELECT COUNT(ID) as SUMA FROM gra;");
+ $sss = $ss->fetch_assoc();
+
+ for($i = 1; $i <= $sss['SUMA']; $i++)
+ {
+    $ss = $pol->query("UPDATE `gra` SET adres`='".$i.".PNG' WHERE ID = $i");
+ }
+
+?>
